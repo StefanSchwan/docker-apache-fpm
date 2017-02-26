@@ -4,10 +4,11 @@ Sample Docker-Compose Setup to test Apache with FPM
 
 ## Usage
 
-Add '127.0.0.1 apache.local' to your `/etc/host` File
+Add the value of APACHE_SERVERNAME to your `/etc/hosts`
 
-bring up the containers
+```
+'127.0.0.1 apachefpm.local'
+```
 
+bring the containers up.
 `docker-compose up`
-
-place content in the app/ folder.

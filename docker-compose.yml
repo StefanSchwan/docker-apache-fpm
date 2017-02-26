@@ -3,8 +3,8 @@ services :
   web:
     build:
       context: ./docker/apache
-    environment:
-      - APACHE_LOG_DIR="logs"
+    env_file:
+      - etc/environment.yml
     ports:
       - "80:80"
     volumes:
