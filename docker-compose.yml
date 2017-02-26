@@ -1,0 +1,27 @@
+version: "2"
+services :
+  web:
+    build:
+      context: ./docker/apache
+    environment:
+      - APACHE_LOG_DIR="logs"
+    ports:
+      - "80:80"
+    volumes:
+      - ./app/:/usr/local/apache2/htdocs/
+    networks:
+      main:
+        aliases:
+        - web
+  php:
+    build:
+      context: ./docker/fpm
+    networks:
+      main:
+        aliases:
+          - php
+    volumes:
+      - ./app/:/var/www/html/
+
+networks:
+  main:
